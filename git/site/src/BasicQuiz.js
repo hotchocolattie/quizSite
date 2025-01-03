@@ -50,12 +50,10 @@ const BasicQuiz = () => {
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
   const [userSelections, setUserSelections] = useState({});
-  const [userPoints, setUserPoints] = useState({});
 
   const handleChangeAnswer = (questionId, points, optionText) => {
     setAnswers({...answers, [questionId]: points});
     setUserSelections({...userSelections, [questionId]: optionText});
-    setUserPoints({...userPoints, [questionId]:points})
   };
 
   const calculateResult = () => {
@@ -98,7 +96,7 @@ const BasicQuiz = () => {
                 </label>
             ))}
             <p>ans... {userSelections[q.id]}</p>
-            <p>scores... {JSON.stringify(userPoints[q.id])}</p>
+            <p>scores... {JSON.stringify(answers[q.id])}</p>
             
             </div>
       ))}
