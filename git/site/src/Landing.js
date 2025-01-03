@@ -1,6 +1,11 @@
 import React from 'react'
 import Header from './Header'
-import Router from './Router'
+import { Link } from "react-router-dom"
+
+const handleClick = () => {
+  console.log('clicked on Landing, button to quiz#1')
+
+}
 
 const Landing = () => {
   return (
@@ -8,7 +13,9 @@ const Landing = () => {
       <Header />
 
       <h1>landing page</h1>
-    </div>
+
+      <p><Link to="/basicQuiz1">take basic quiz #1</Link></p>
+      </div>
   )
 }
 
