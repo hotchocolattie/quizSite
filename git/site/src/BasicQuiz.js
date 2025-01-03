@@ -49,6 +49,7 @@ const BasicQuiz = () => {
 
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
+  const [finalScore, setFinalScore] = useState(null);
   const [userSelections, setUserSelections] = useState({});
 
   const handleChangeAnswer = (questionId, points, optionText) => {
@@ -63,6 +64,9 @@ const BasicQuiz = () => {
         scores[key] = (scores[key] || 0) + value;
       });
     });
+
+    setFinalScore(scores);
+    console.log(scores);
 
     const finalResult = Object.keys(scores).reduce((a, b) =>
       scores[a] > scores[b] ? a : b
@@ -108,7 +112,7 @@ const BasicQuiz = () => {
       <br />
       
       
-      {<div>Result: {result} <br /> <br /> Blurb: {stardewResults[result]}</div>}
+      {<div>Result: {result} <br /> <br /> Blurb: {stardewResults[result]} <br /> <br /> Total Points: {JSON.stringify(finalScore)}</div>}
 
       </div>
     
